@@ -25,9 +25,14 @@ pipeline {
         }
     }
 
-    post {
-        failure {
-           echo 'Pipeline failed'
+        post {
+            always {
+                script {
+                    if (currentBuild.result == 'FAILURE') 
+                    {
+                        echo 'Pipeline Failed'
+                    }
+                }
+            }
         }
-    }
 }
