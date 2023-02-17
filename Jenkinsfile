@@ -4,19 +4,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -o PES1UG20CS685-1 PES1UG20CS685-1.cpp'
+                sh 'g++ -o hello hello.cpp'
+                echo 'PES1UG20CS685'
+                echo 'Build Stage Successful'
             }
         }
 
         stage('Test') {
             steps {
-                sh './PES1UG20CS685-1'
+                sh './hello'
+                echo 'Test Stage Successful'
+                
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'deployed successfully'
+                echo 'Deploy Stage Successful'
             }
         }
     }
